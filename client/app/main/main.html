@@ -1,0 +1,19 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+	<h1>SmartFox Demo</h1>
+	<h2 ng-show='$ctrl.userName'>Welcome {{$ctrl.userName}}</h2>
+  </div>
+</header>
+<div layout='column'>
+	<form name='nameInput' layout='row' ng-submit="nameInput.$valid && $ctrl.logIn($ctrl.name)" ng-show='!$ctrl.SFS.sfc.mySelf'>
+		<md-input-container md-is-error="!$ctrl.name">
+			<label>Name</label>
+			<input name='name' ng-model="$ctrl.name" required>
+	  	</md-input-container>
+		<md-button class='md-primary' type='submit'>Log In</md-button>
+	</form>
+	<div layout='row' ng-show='$ctrl.userName'>
+		<player-list found-players='$ctrl.players' layout='column' flex='60'></player-list>
+		<user-list found-users='$ctrl.usersInRoom' layout='column' flex='40'></user-list>
+	</div>
+</div>
